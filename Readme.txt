@@ -1,4 +1,4 @@
-1.file name n_3217 means length of modulo n = 3217 bits corresponding to message length h = 64 bits
+1.file name n_44479_h_64 means length of modulo n = 44479 bits corresponding to message length h = 64 bits
 
 2.the output of the file
 
