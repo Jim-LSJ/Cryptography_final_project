@@ -9,7 +9,7 @@ typedef bitset<216091> N;
 typedef bitset<128> lambda;
 typedef bitset<216091 - 128> N_lam;
 
-N add(N& a, N& b)
+N add(N a, N& b)
 {
 	N sum;
 	bool carry = 0;
@@ -20,10 +20,10 @@ N add(N& a, N& b)
 	}
 	if (sum.count() == sum.size()) // mod (2^N - 1)
 		sum = 0;
-	if (!carry) // ¨S¦³¶i¦ì
+	if (!carry) // ï¿½Sï¿½ï¿½ï¿½iï¿½ï¿½
 		return sum;
 
-	// ¦³¶i¦ì¡Asum = sum + 1 (mod 2^N - 1)
+	// ï¿½ï¿½ï¿½iï¿½ï¿½Asum = sum + 1 (mod 2^N - 1)
 	// e.g. 1 010 (mod 111) = 010 + 1 000 (mod 111) = 010 + 001 = 011
 	for (size_t i = 0; i < a.size(); i++)
 	{
@@ -202,7 +202,7 @@ int main()
 	int count = 0;
 	int  errorList[696] = { 0 };
 	unsigned seed;
-	seed = (unsigned)time(NULL); // ¨ú±o®É¶¡§Ç¦C
+	seed = (unsigned)time(NULL); // ï¿½ï¿½ï¿½oï¿½É¶ï¿½ï¿½Ç¦C
 	srand(seed);
 	for(size_t times = 1 ; times < 200 ; times ++)
 	{
@@ -210,7 +210,7 @@ int main()
 		cout << "times = " << times << endl;
 
 		lambda m;
-		seed = (unsigned)time(NULL); // ¨ú±o®É¶¡§Ç¦C
+		seed = (unsigned)time(NULL); // ï¿½ï¿½ï¿½oï¿½É¶ï¿½ï¿½Ç¦C
 		srand(seed);
 		while(time(NULL) <= seed + 0.00000001){ } // delay
 		for (int i = 0; i < m.size(); i++)
@@ -250,9 +250,9 @@ int main()
 		cout << "Dec time : " << double(stop - start) / CLOCKS_PER_SEC << endl;
 		cout << "hamming weight of public keys r and t: " << pk[0].count() << " , " << pk[1].count() << endl;
 		cout << "hamming weights of ciphertexts c1 and c2: " << c[0].count() << " , " << c[1].count() << endl;
-		cout << "©ú¤å : " << m << endl;
-		cout << "¸Ñ±K : " << m_dec << endl;
-		cout << "Equal(1)  or  not(0) : " << !((m ^ m_dec).count()) << endl; //­ì¤åxor¸Ñ±K«á1ªº­Ó¼ÆÁ`©M = 0¡A¨úNOT = 1 
+		cout << "ï¿½ï¿½ï¿½ï¿½ : " << m << endl;
+		cout << "ï¿½Ñ±K : " << m_dec << endl;
+		cout << "Equal(1)  or  not(0) : " << !((m ^ m_dec).count()) << endl; //ï¿½ï¿½ï¿½xorï¿½Ñ±Kï¿½ï¿½1ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½`ï¿½M = 0ï¿½Aï¿½ï¿½NOT = 1 
 
 		count += !((m ^ m_dec).count());
 		
